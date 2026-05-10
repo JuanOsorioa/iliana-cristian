@@ -1,0 +1,315 @@
+@media (max-width: 425px) {
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        width: 100dvw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    header {
+        width: 100dvw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nuestra {
+        width: 50dvw;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .iliana-cristian {
+        width: 80dvw;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        z-index: 1;
+    }
+
+    .portada {
+        width: 100dvw;
+        margin: 0 auto;
+        margin-top: 10px;
+    }
+
+    .flores {
+        width: 100dvw;
+        position: relative;
+        top: -80dvh;
+        z-index: 0;
+        animation: floatSway 5s ease-in-out infinite;
+        transform-origin: center bottom;
+    }
+
+    /* ===========================
+       Player container - MÓVIL
+    =========================== */
+    .player {
+        padding: 20px 20px 24px;
+        width: 90dvw;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        position: relative;
+        top: -60dvh;
+    }
+
+    .progress-wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .progress-bar-container {
+        position: relative;
+        height: 2px;
+        background: var(--text-dim);
+        border-radius: 99px;
+        cursor: pointer;
+    }
+
+    .progress-fill {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        background: var(--rose);
+        border-radius: 99px;
+        width: 22%;
+        transition: width 0.2s linear;
+    }
+
+    .progress-thumb {
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 10px;
+        height: 10px;
+        background: var(--rose);
+        border-radius: 50%;
+        left: 22%;
+        cursor: grab;
+        transition: left 0.2s linear;
+        box-shadow: 0 0 4px rgba(184, 112, 112, 0.5);
+    }
+
+    .progress-times {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.65rem;
+        color: var(--text-dim);
+        letter-spacing: 0.05em;
+    }
+
+    .controls {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .btn-like {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 2px;
+        color: var(--rose);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.15s;
+    }
+
+    .btn-like:hover {
+        transform: scale(1.15);
+    }
+
+    .btn-like svg {
+        width: 12px;
+        height: 12px;
+        fill: var(--rose);
+    }
+
+    .btn-skip {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 2px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.15s, opacity 0.15s;
+    }
+
+    .btn-skip:hover {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+
+    .btn-skip svg {
+        width: 20px;
+        height: 20px;
+        fill: var(--rose);
+    }
+
+    .btn-play {
+        background: var(--rose);
+        border: none;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+        box-shadow: 0 4px 16px rgba(184, 112, 112, 0.45);
+    }
+
+    .btn-play:hover {
+        background: var(--rose-light);
+        transform: scale(1.05);
+    }
+
+    .btn-play:active {
+        transform: scale(0.97);
+    }
+
+    .btn-play svg {
+        width: 20px;
+        height: 20px;
+        fill: #fff;
+    }
+
+    .volume-wrap {
+        display: flex;
+        align-items: center;
+    }
+
+    .btn-volume {
+        background: var(--rose-dark);
+        border: none;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s, transform 0.15s;
+    }
+
+    /* ===========================
+       Main Content - MÓVIL
+    =========================== */
+    main {
+        width: 100dvw;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        top: -100dvh;
+        align-items: center;
+    }
+
+    .imagen-2 {
+        width: 95dvw;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .flor-3 {
+        width: 45dvw;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .segundo-texto {
+        width: 75dvw;
+        margin-top: -30px;
+        margin-bottom: 15px;
+        position: relative;
+        z-index: -1;
+    }
+
+    .fecha {
+        width: 75dvw;
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
+
+    .imagen-contador {
+        width: 80dvw;
+        margin-top: 40px;
+        margin-bottom: 15px;
+    }
+
+    /* ===========================
+       Contador - MÓVIL
+    =========================== */
+    .contador-wrap {
+        position: relative;
+        display: block;
+        width: 100%;
+    }
+
+    .contador-wrap .imagen-contador {
+        display: block;
+        width: 100%;
+    }
+
+    .contador-numeros {
+        position: absolute;
+        top: 57%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 85%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .contador-num {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 5vw;
+        color: #E8A898;
+        line-height: 1;
+        letter-spacing: 0.02em;
+        text-align: center;
+        min-width: 2ch;
+    }
+
+    .calendario {
+        width: 80dvw;
+        margin-top: 15px;
+    }
+
+    .imagen-3 {
+        width: 80dvw;
+        margin-bottom: 15px;
+        border-top: 3px solid gray;
+    }
+
+    .ubicacion {
+        width: 80dvw;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .como-llegar {
+        width: 35dvw;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .ultima-foto {
+        width: 85dvw;
+        margin-top: 30px;
+        margin-bottom: 15px;
+    }
+} 
