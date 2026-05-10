@@ -58,7 +58,13 @@ function syncPlayIcon() {
 
 // Cuando se carga la metadata (duración disponible)
 audio.addEventListener('loadedmetadata', () => {
+  console.log('Metadata cargada - Duración:', audio.duration);
   totalTimeEl.textContent = fmt(audio.duration);
+});
+
+// Cuando hay error
+audio.addEventListener('error', (e) => {
+  console.error('Error de audio:', e, audio.error);
 });
 
 // Actualiza progreso mientras reproduce
@@ -78,8 +84,20 @@ audio.addEventListener('ended', () => {
 
 // Play / Pause
 btnPlay.addEventListener('click', () => {
+  console.log('Audio paused:', audio.paused);
+  console.log('Audio src:', audio.src);
+  
   if (audio.paused) {
-    audio.play();
+    const playPromise = audio.play();
+    if (playPromise !== undefined) {
+      playPromise
+        .then(() => {
+          console.log('Reproducción iniciada');
+        })
+        .catch((error) => {
+          console.error('Error al reproducir:', error);
+        });
+    }
   } else {
     audio.pause();
   }
@@ -97,6 +115,4 @@ progressBar.addEventListener('click', (e) => {
 // ===========================
 // Inicialización
 // ===========================
-songTitleEl.textContent  = song.title;
-songArtistEl.textContent = song.artist;
 syncPlayIcon();

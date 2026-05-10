@@ -1,4 +1,6 @@
-* {
+@media (min-width: 726px) {
+    
+  * {
     margin: 0;
     padding: 0;
 }
@@ -373,4 +375,5 @@ main {
     width: 40dvw;
     margin-top: 40px;
     margin-bottom: 20px;
+}
 }

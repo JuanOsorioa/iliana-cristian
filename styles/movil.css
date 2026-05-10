@@ -1,315 +1,523 @@
 @media (max-width: 425px) {
+    
     * {
         margin: 0;
         padding: 0;
     }
 
+    html {
+        overflow-x: hidden;
+    }
+
     body {
-        width: 100dvw;
         display: flex;
         flex-direction: column;
         align-items: center;
         margin: 0 auto;
+        overflow-x: hidden;
     }
 
     header {
-        width: 100dvw;
+        height: 100vh;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        margin: 0 auto;
     }
 
     .nuestra {
-        width: 50dvw;
-        margin-top: 20px;
-        margin-bottom: 20px;
+        width: 50vw;
+        margin-top: 30px;
     }
 
     .iliana-cristian {
-        width: 80dvw;
-        margin-top: 20px;
+        width:  80vw;
+        margin-top: 40px;
         margin-bottom: 20px;
         z-index: 1;
     }
 
     .portada {
-        width: 100dvw;
+        width: 90dvw;
         margin: 0 auto;
         margin-top: 10px;
     }
 
     .flores {
-        width: 100dvw;
-        position: relative;
-        top: -80dvh;
-        z-index: 0;
+        width: 340px;
+        position: absolute;
+        top: 20dvh;
         animation: floatSway 5s ease-in-out infinite;
         transform-origin: center bottom;
     }
 
-    /* ===========================
-       Player container - MÓVIL
-    =========================== */
-    .player {
-        padding: 20px 20px 24px;
-        width: 90dvw;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        position: relative;
-        top: -60dvh;
+    @keyframes floatSway {
+    0% {
+            transform: translateY(0px) rotate(-1deg);
+        }
+        25% {
+            transform: translateY(-12px) rotate(0.5deg);
+        }
+        50% {
+            transform: translateY(-18px) rotate(1deg);
+        }
+        75% {
+            transform: translateY(-8px) rotate(-0.5deg);
+        }
+        100% {
+            transform: translateY(0px) rotate(-1deg);
+    }
     }
 
-    .progress-wrap {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
+    .reproductor {
+        display: none;
+        visibility: hidden;
     }
 
-    .progress-bar-container {
-        position: relative;
-        height: 2px;
-        background: var(--text-dim);
-        border-radius: 99px;
-        cursor: pointer;
+     .calendario {
+        width: 80vw;
+        margin-top: 20px;
     }
 
-    .progress-fill {
-        position: absolute;
-        left: 0;
-        top: 0;
-        height: 100%;
-        background: var(--rose);
-        border-radius: 99px;
-        width: 22%;
-        transition: width 0.2s linear;
-    }
+    /* ===========reproductor========== */
+/* ===========================
+   Variables & Reset
+=========================== */ 
+:root {
+  --bg:         #f2d0f7;
+  --rose:       #b87070;
+  --rose-light: #c98888;
+  --rose-dark:  #9c5f5f;
+  --text:       #e8d8d8;
+  --text-dim:   #7a5a5a;
+}
 
-    .progress-thumb {
-        position: absolute;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        width: 10px;
-        height: 10px;
-        background: var(--rose);
-        border-radius: 50%;
-        left: 22%;
-        cursor: grab;
-        transition: left 0.2s linear;
-        box-shadow: 0 0 4px rgba(184, 112, 112, 0.5);
-    }
+/* ===========================
+   Player container
+=========================== */
+.player {
+  padding: 18px 16px;
+  width: min(50vw, 160px);
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  position: relative;
+  top: 0;
+  margin: -60px auto 0;
+  border-radius: 24px;
+  
+}
+  
+/* ===========================
+   Progress bar
+=========================== */
+.progress-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+ 
+.progress-bar-container {
+  position: relative;
+  width: 100%;
+  height: 2px;
+  background: var(--text-dim);
+  border-radius: 99px;
+  cursor: pointer;
+}
+ 
+.progress-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: var(--rose);
+  border-radius: 99px;
+  width: 22%;
+  transition: width 0.2s linear;
+}
+ 
+.progress-thumb {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  background: var(--rose);
+  border-radius: 50%;
+  left: 22%;
+  cursor: grab;
+  transition: left 0.2s linear;
+  box-shadow: 0 0 6px rgba(184, 112, 112, 0.5);
+}
+ 
+.progress-times {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  letter-spacing: 0.05em;
+}
+ 
+/* ===========================
+   Controls row
+=========================== */
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1px;
+}
+ 
+/* ===========================
+   Like button
+=========================== */
+.btn-like {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  color: var(--rose);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s;
+}
+ 
+.btn-like:hover {
+  transform: scale(1.15);
+}
+ 
+.btn-like svg {
+  width: 16px;
+  height: 16px;
+  fill: var(--rose);
+  transition: opacity 0.2s;
+}
+ 
+/* ===========================
+   Prev / Next buttons
+=========================== */
+.btn-skip {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s, opacity 0.15s;
+}
+ 
+.btn-skip:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+ 
+.btn-skip svg {
+  width: 22px;
+  height: 22px;
+  fill: var(--rose);
+}
+ 
+/* ===========================
+   Play / Pause button
+=========================== */
+.btn-play {
+  background: var(--rose);
+  border: none;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 6px 24px rgba(184, 112, 112, 0.45);
+}
+ 
+.btn-play:hover {
+  background: var(--rose-light);
+  transform: scale(1.05);
+  box-shadow: 0 8px 30px rgba(184, 112, 112, 0.6);
+}
+ 
+.btn-play:active {
+  transform: scale(0.97);
+}
+ 
+.btn-play svg {
+  width: 24px;
+  height: 24px;
+  fill: #fff;
+}
+ 
+/* ===========================
+   Volume
+=========================== */
+.volume-wrap {
+  display: flex;
+  align-items: center;
+}
+ 
+.btn-volume {
+  background: var(--rose-dark);
+  border: none;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, transform 0.15s;
+}
+/* ==========fin reproductor========== */
 
-    .progress-times {
-        display: flex;
-        justify-content: space-between;
-        font-size: 0.65rem;
-        color: var(--text-dim);
-        letter-spacing: 0.05em;
-    }
-
-    .controls {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-    }
-
-    .btn-like {
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 2px;
-        color: var(--rose);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: transform 0.15s;
-    }
-
-    .btn-like:hover {
-        transform: scale(1.15);
-    }
-
-    .btn-like svg {
-        width: 12px;
-        height: 12px;
-        fill: var(--rose);
-    }
-
-    .btn-skip {
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 2px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: transform 0.15s, opacity 0.15s;
-    }
-
-    .btn-skip:hover {
-        transform: scale(1.1);
-        opacity: 0.8;
-    }
-
-    .btn-skip svg {
-        width: 20px;
-        height: 20px;
-        fill: var(--rose);
-    }
-
-    .btn-play {
-        background: var(--rose);
-        border: none;
-        border-radius: 50%;
-        width: 30px;
-        height: 30px;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-        box-shadow: 0 4px 16px rgba(184, 112, 112, 0.45);
-    }
-
-    .btn-play:hover {
-        background: var(--rose-light);
-        transform: scale(1.05);
-    }
-
-    .btn-play:active {
-        transform: scale(0.97);
-    }
-
-    .btn-play svg {
-        width: 20px;
-        height: 20px;
-        fill: #fff;
-    }
-
-    .volume-wrap {
-        display: flex;
-        align-items: center;
-    }
-
-    .btn-volume {
-        background: var(--rose-dark);
-        border: none;
-        border-radius: 50%;
-        width: 20px;
-        height: 20px;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: background 0.2s, transform 0.15s;
-    }
-
-    /* ===========================
-       Main Content - MÓVIL
-    =========================== */
     main {
         width: 100dvw;
         display: flex;
         flex-direction: column;
-        position: relative;
-        top: -100dvh;
         align-items: center;
     }
 
     .imagen-2 {
-        width: 95dvw;
-        margin-top: 15px;
-        margin-bottom: 15px;
+        width: 100dvw;
+        margin: 0 auto;
+        margin-bottom: 10px;
     }
 
     .flor-3 {
-        width: 45dvw;
-        margin-top: 15px;
-        margin-bottom: 15px;
+        width: 50dvw;
+        margin: 0 auto;
     }
 
     .segundo-texto {
-        width: 75dvw;
-        margin-top: -30px;
-        margin-bottom: 15px;
+        width: 100dvw;
+        margin: 0 auto;
+        margin-top: -25px;
+        margin-bottom: 20px;
         position: relative;
         z-index: -1;
     }
 
     .fecha {
-        width: 75dvw;
-        margin-top: 10px;
-        margin-bottom: 15px;
+        width: 80dvw;
+        margin: 0 auto;
+        margin-bottom: 20px;
     }
 
     .imagen-contador {
         width: 80dvw;
-        margin-top: 40px;
-        margin-bottom: 15px;
+        margin: 0 auto;
+        margin-top: 30px;
+        margin-bottom: 20px;
     }
 
-    /* ===========================
-       Contador - MÓVIL
-    =========================== */
-    .contador-wrap {
-        position: relative;
+    @media (max-width: 425px) {
+    
+        /*=======Contador=======*/
+        /* ── Contenedor relativo que envuelve imagen + números ─────────── */
+      .contador-wrap {
+        position: relative;   /* ancla los hijos absolute a este bloque */
+        display: block;
+        width: 100%;          /* hereda el ancho de .imagen-contador si ya lo tienes en tu CSS */
+      }
+
+      /* ── La imagen ocupa todo el contenedor ────────────────────────── */
+      .contador-wrap .imagen-contador {
         display: block;
         width: 100%;
-    }
+      }
 
-    .contador-wrap .imagen-contador {
-        display: block;
-        width: 100%;
-    }
-
-    .contador-numeros {
+      /* ── Fila de números flotando sobre la imagen ──────────────────────
+         ↕ POSICIÓN VERTICAL  → ajusta `top`   (% del alto del .contador-wrap)
+         ↔ POSICIÓN HORIZONTAL→ ajusta `left` y `width`
+         ─────────────────────────────────────────────────────────────── */
+      .contador-numeros {
         position: absolute;
-        top: 57%;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 85%;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-    }
 
-    .contador-num {
-        font-family: 'Playfair Display', Georgia, serif;
-        font-size: 5vw;
-        color: #E8A898;
+        top: 329%;             /* ← SUBE / BAJA los números (prueba 20%–50%) */
+
+        left: 45.8%;            /* ← centro horizontal base */
+        transform: translateX(-50%);  /* centra exacto respecto al eje */
+        width: 80%;           /* ← ancho de la fila; aumenta para separar más los dígitos */
+
+        display: flex;
+        justify-content: space-around;  /* distribuye los 4 números uniformemente */
+        align-items: center;
+      }
+
+      /* ── Cada dígito ────────────────────────────────────────────────
+         font-size en vw escala automáticamente con el ancho de pantalla.
+         ↔ TAMAÑO → ajusta el número en font-size (prueba 5vw–10vw)
+         ─────────────────────────────────────────────────────────────── */
+      .contador-num {
+        font-family: 'Playfair Display', Georgia, serif;  /* misma fuente que el sitio */
+        font-size: 6vw;       /* ← TAMAÑO de los dígitos */
+        color: #E8A898;       /* ← COLOR rosa que coincide con el texto de la imagen */
         line-height: 1;
         letter-spacing: 0.02em;
         text-align: center;
-        min-width: 2ch;
+        min-width: 2ch;       /* evita saltos al cambiar de 1 a 2 dígitos */
+      }
+        /*=========fin contador=======*/
+        
+        }
+
+    
+
+        footer {
+            display: none;
+            visibility: hidden;
+    }
+}
+
+    @media (max-width: 375px) {
+    
+        /*=======Contador=======*/
+        /* ── Contenedor relativo que envuelve imagen + números ─────────── */
+      .contador-wrap {
+        position: relative;   /* ancla los hijos absolute a este bloque */
+        display: block;
+        width: 100%;          /* hereda el ancho de .imagen-contador si ya lo tienes en tu CSS */
+      }
+
+      /* ── La imagen ocupa todo el contenedor ────────────────────────── */
+      .contador-wrap .imagen-contador {
+        display: block;
+        width: 100%;
+      }
+
+      /* ── Fila de números flotando sobre la imagen ──────────────────────
+         ↕ POSICIÓN VERTICAL  → ajusta `top`   (% del alto del .contador-wrap)
+         ↔ POSICIÓN HORIZONTAL→ ajusta `left` y `width`
+         ─────────────────────────────────────────────────────────────── */
+      .contador-numeros {
+        position: absolute;
+
+        top: 304%;             /* ← SUBE / BAJA los números (prueba 20%–50%) */
+
+        left: 44%;            /* ← centro horizontal base */
+        transform: translateX(-50%);  /* centra exacto respecto al eje */
+        width: 80%;           /* ← ancho de la fila; aumenta para separar más los dígitos */
+
+        display: flex;
+        justify-content: space-around;  /* distribuye los 4 números uniformemente */
+        align-items: center;
+      }
+
+      /* ── Cada dígito ────────────────────────────────────────────────
+         font-size en vw escala automáticamente con el ancho de pantalla.
+         ↔ TAMAÑO → ajusta el número en font-size (prueba 5vw–10vw)
+         ─────────────────────────────────────────────────────────────── */
+      .contador-num {
+        font-family: 'Playfair Display', Georgia, serif;  /* misma fuente que el sitio */
+        font-size: 6vw;       /* ← TAMAÑO de los dígitos */
+        color: #E8A898;       /* ← COLOR rosa que coincide con el texto de la imagen */
+        line-height: 1;
+        letter-spacing: 0.02em;
+        text-align: center;
+        min-width: 2ch;       /* evita saltos al cambiar de 1 a 2 dígitos */
+      }
+        /*=========fin contador=======*/
+        
+        }
+
+    
+
+        footer {
+            display: none;
+            visibility: hidden;
+    }
+
+    @media (max-width: 375px) {
+    
+        /*=======Contador=======*/
+        /* ── Contenedor relativo que envuelve imagen + números ─────────── */
+      .contador-wrap {
+        position: relative;   /* ancla los hijos absolute a este bloque */
+        display: block;
+        width: 100%;          /* hereda el ancho de .imagen-contador si ya lo tienes en tu CSS */
+      }
+
+      /* ── La imagen ocupa todo el contenedor ────────────────────────── */
+      .contador-wrap .imagen-contador {
+        display: block;
+        width: 100%;
+      }
+
+      /* ── Fila de números flotando sobre la imagen ──────────────────────
+         ↕ POSICIÓN VERTICAL  → ajusta `top`   (% del alto del .contador-wrap)
+         ↔ POSICIÓN HORIZONTAL→ ajusta `left` y `width`
+         ─────────────────────────────────────────────────────────────── */
+      .contador-numeros {
+        position: absolute;
+
+        top: 304%;             /* ← SUBE / BAJA los números (prueba 20%–50%) */
+
+        left: 44%;            /* ← centro horizontal base */
+        transform: translateX(-50%);  /* centra exacto respecto al eje */
+        width: 80%;           /* ← ancho de la fila; aumenta para separar más los dígitos */
+
+        display: flex;
+        justify-content: space-around;  /* distribuye los 4 números uniformemente */
+        align-items: center;
+      }
+
+      /* ── Cada dígito ────────────────────────────────────────────────
+         font-size en vw escala automáticamente con el ancho de pantalla.
+         ↔ TAMAÑO → ajusta el número en font-size (prueba 5vw–10vw)
+         ─────────────────────────────────────────────────────────────── */
+      .contador-num {
+        font-family: 'Playfair Display', Georgia, serif;  /* misma fuente que el sitio */
+        font-size: 6vw;       /* ← TAMAÑO de los dígitos */
+        color: #E8A898;       /* ← COLOR rosa que coincide con el texto de la imagen */
+        line-height: 1;
+        letter-spacing: 0.02em;
+        text-align: center;
+        min-width: 2ch;       /* evita saltos al cambiar de 1 a 2 dígitos */
+      }
+        /*=========fin contador=======*/
+        
+        }
+
+    
+
+        footer {
+            display: none;
+            visibility: hidden;
     }
 
     .calendario {
-        width: 80dvw;
-        margin-top: 15px;
+        width: 100vw;
+        margin-top: 10px;
+        border-bottom: 5px solid gray;
     }
 
     .imagen-3 {
-        width: 80dvw;
-        margin-bottom: 15px;
-        border-top: 3px solid gray;
+        width: 100vw;
+        margin-bottom: 20px;
     }
 
     .ubicacion {
-        width: 80dvw;
-        margin-top: 15px;
-        margin-bottom: 15px;
+        width: 80vw;
+        margin-bottom: 20px;
+        margin: 0 auto;
     }
 
-    .como-llegar {
-        width: 35dvw;
-        margin-top: 15px;
-        margin-bottom: 15px;
+    a .como-llegar {
+        width: 40vw;
+        margin-top: 25px;
+        margin-bottom: 20px;
     }
 
     .ultima-foto {
-        width: 85dvw;
-        margin-top: 30px;
-        margin-bottom: 15px;
+        width: 100vw;
+        margin-top: 20px;
+        margin-bottom: 20px;
     }
-} 
