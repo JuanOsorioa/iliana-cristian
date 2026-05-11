@@ -57,7 +57,9 @@
     transform: translate(-50%, -50%); 
 
     /* Si quieres mover las flores manualmente a un lado u otro, 
-       puedes cambiar el 'left' o usar 'margin-left' con px/rem. */
+      puedes cambiar el 'left' o usar 'margin-left' con px/rem. */
+    animation: swayMovil 6s ease-in-out infinite;
+    transform-origin: center;
   }
 
   .numeros {
@@ -292,14 +294,49 @@
     margin-top: 20px;
   }
 
-  .imagen-contador {
+  /* 1. La imagen del contador (tu código base) */
+.imagen-contador {
     width: 80dvw;
     margin-top: 40px;
-  }
+    display: block; /* Asegura que se comporte como bloque */
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+}
+
+/* 2. Los números (el truco del margen negativo) */
+.contador-numeros {
+    /* Mantenemos el absolute pero ahora su referencia será el body o el main */
+    position: relative; 
+    
+    /* SUCCIÓN HACIA ARRIBA: 
+       Este margen negativo debe ser aproximadamente la mitad de la altura 
+       de la imagen. Al usar 'vw', si la imagen se achica, el salto también.
+    */
+    margin-top: -21vw; /* Ajusta este valor hasta que queden centrados verticalmente */
+    
+    /* Centrado horizontal */
+    width: 70dvw; /* Un poco más angosto que la imagen para que no toque los bordes */
+    margin-left: 10dvw;
+    margin-right: auto;
+    gap: 10dvw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 10; /* Asegura que queden por encima de la imagen */
+}
+
+.contador-num {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 8vw; /* Escala con la pantalla */
+    color: #E8A898;
+    line-height: 1;
+    text-align: center;
+}
 
   .calendario {
     width: 100dvw;
-    margin-top: 20px;
+    margin-top: 50px;
     border-bottom: gray solid 5px;
   }
 
@@ -347,4 +384,23 @@
 
    
 
+}
+
+
+
+/* 2. Agrega estos keyframes al final de tu archivo movil.css */
+@keyframes swayMovil {
+    0% {
+        /* Es VITAL repetir el translate(-50%, -50%) en cada paso */
+        transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    }
+    33% {
+        transform: translate(-50%, -52%) rotate(2deg) scale(1.02);
+    }
+    66% {
+        transform: translate(-50%, -48%) rotate(-2deg) scale(0.98);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    }
 }
