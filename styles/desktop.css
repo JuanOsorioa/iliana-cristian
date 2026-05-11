@@ -1,53 +1,59 @@
 @media (min-width: 726px) {
-    
-  * {
-    margin: 0;
-    padding: 0;
-}
 
-body {
-    width: 50dvw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 auto;
-}
+    * {
+        margin: 0;
+        padding: 0;
+    }
 
-header {
-    width: 50dvw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
+    body {
+        width: 50dvw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 auto;
+    }
 
+    header {
+        width: 50dvw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 
-.nuestra {
-    width: 25dvw;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
+    .nuestra {
+        width: 25dvw;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
 
-.iliana-cristian {
-    width:  40dvw;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    z-index: 1;
-}
+    .iliana-cristian {
+        width: 40dvw;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        z-index: 1;
+    }
 
-.portada {
-    width: 50dvw;
-    margin: 0 auto;
-    margin-top: 10px;
-}
-/*=========flores=========*/
-.flores {
-    width: 50dvw;
-    position: relative;
-    top: -120dvh;
-    z-index: 0;
-    animation: floatSway 5s ease-in-out infinite;
-    transform-origin: center bottom;
+    .portada {
+        width: 50dvw;
+        margin: 0 auto;
+        margin-top: 10px;
+    }
+
+    .numeros {
+        width: 20dvw;
+        margin-top: 30px;
+    }
+
+    /*=========flores=========*/
+    .flores {
+        width: 70dvw;
+        position: relative;
+        top: -130dvh;
+        z-index: -1;
+        animation: floatSway 5s ease-in-out infinite;
+        transform-origin: center bottom;
+    }
 }
 
 @keyframes floatSway {
@@ -66,263 +72,263 @@ header {
     100% {
         transform: translateY(0px) rotate(-1deg);
     }
-}
-/*=========fin flores=========*/
+    }
 
-/* ===========reproductor========== */
-/* ===========================
-   Variables & Reset
-=========================== */ 
-:root {
-  --bg:         #f2d0f7;
-  --rose:       #b87070;
-  --rose-light: #c98888;
-  --rose-dark:  #9c5f5f;
-  --text:       #e8d8d8;
-  --text-dim:   #7a5a5a;
-}
+    /* ===========reproductor========== */
+    /* ===========================
+       Variables & Reset
+    ============================ */
+    :root {
+        --bg:         #f2d0f7;
+        --rose:       #b87070;
+        --rose-light: #c98888;
+        --rose-dark:  #9c5f5f;
+        --text:       #e8d8d8;
+        --text-dim:   #7a5a5a;
+    }
 
-/* ===========================
-   Player container
-=========================== */
-.player {
-  padding: 32px 40px 36px;
-  width: 300px;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  position: relative;
-  top: -780px;
-}
-  
-/* ===========================
-   Progress bar
-=========================== */
-.progress-wrap {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
- 
-.progress-bar-container {
-  position: relative;
-  height: 3px;
-  background: var(--text-dim);
-  border-radius: 99px;
-  cursor: pointer;
-}
- 
-.progress-fill {
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  background: var(--rose);
-  border-radius: 99px;
-  width: 22%;
-  transition: width 0.2s linear;
-}
- 
-.progress-thumb {
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 13px;
-  height: 13px;
-  background: var(--rose);
-  border-radius: 50%;
-  left: 22%;
-  cursor: grab;
-  transition: left 0.2s linear;
-  box-shadow: 0 0 6px rgba(184, 112, 112, 0.5);
-}
- 
-.progress-times {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.72rem;
-  color: var(--text-dim);
-  letter-spacing: 0.05em;
-}
- 
-/* ===========================
-   Controls row
-=========================== */
-.controls {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
- 
-/* ===========================
-   Like button
-=========================== */
-.btn-like {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 4px;
-  color: var(--rose);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.15s;
-}
- 
-.btn-like:hover {
-  transform: scale(1.15);
-}
- 
-.btn-like svg {
-  width: 16px;
-  height: 16px;
-  fill: var(--rose);
-  transition: opacity 0.2s;
-}
- 
-/* ===========================
-   Prev / Next buttons
-=========================== */
-.btn-skip {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.15s, opacity 0.15s;
-}
- 
-.btn-skip:hover {
-  transform: scale(1.1);
-  opacity: 0.8;
-}
- 
-.btn-skip svg {
-  width: 28px;
-  height: 28px;
-  fill: var(--rose);
-}
- 
-/* ===========================
-   Play / Pause button
-=========================== */
-.btn-play {
-  background: var(--rose);
-  border: none;
-  border-radius: 50%;
-  width: 38px;
-  height: 38px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-  box-shadow: 0 6px 24px rgba(184, 112, 112, 0.45);
-}
- 
-.btn-play:hover {
-  background: var(--rose-light);
-  transform: scale(1.05);
-  box-shadow: 0 8px 30px rgba(184, 112, 112, 0.6);
-}
- 
-.btn-play:active {
-  transform: scale(0.97);
-}
- 
-.btn-play svg {
-  width: 28px;
-  height: 28px;
-  fill: #fff;
-}
- 
-/* ===========================
-   Volume
-=========================== */
-.volume-wrap {
-  display: flex;
-  align-items: center;
-}
- 
-.btn-volume {
-  background: var(--rose-dark);
-  border: none;
-  border-radius: 50%;
-  width: 26px;
-  height: 26px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.2s, transform 0.15s;
-}
-/* ==========fin reproductor========== */
+    /* ===========================
+       Player container
+    ============================ */
+    .player {
+        padding: 32px 40px 36px;
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        position: relative;
+        top: -900px;
+    }
 
-main {
-    width: 50dvw;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    top: -137dvh;
-    align-items: center;
-}
+    /* ===========================
+       Progress bar
+    ============================ */
+    .progress-wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
 
-.imagen-2 {
-    width: 50dvw;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
+    .progress-bar-container {
+        position: relative;
+        height: 3px;
+        background: var(--text-dim);
+        border-radius: 99px;
+        cursor: pointer;
+    }
 
-.flor-3 {
-    width: 27dvw;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
+    .progress-fill {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        background: var(--rose);
+        border-radius: 99px;
+        width: 22%;
+        transition: width 0.2s linear;
+    }
 
-.segundo-texto {
-    width: 40dvw;
-    margin-top: -55px;
-    margin-bottom: 20px;
-    position: relative;
-    z-index: -1;
-}
+    .progress-thumb {
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 13px;
+        height: 13px;
+        background: var(--rose);
+        border-radius: 50%;
+        left: 22%;
+        cursor: grab;
+        transition: left 0.2s linear;
+        box-shadow: 0 0 6px rgba(184, 112, 112, 0.5);
+    }
 
-.fecha {
-    width: 40dvw;
-    margin-top: 10px;
-    margin-bottom: 20px;
-}
+    .progress-times {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.72rem;
+        color: var(--text-dim);
+        letter-spacing: 0.05em;
+    }
 
-.imagen-contador {
-    width: 40dvw;
-    margin-top: 60px;
-    margin-bottom: 20px;
-}
+    /* ===========================
+       Controls row
+    ============================ */
+    .controls {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
 
-/*=======Contador=======*/
-/* ── Contenedor relativo que envuelve imagen + números ─────────── */
-      .contador-wrap {
+    /* ===========================
+       Like button
+    ============================ */
+    .btn-like {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 4px;
+        color: var(--rose);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.15s;
+    }
+
+    .btn-like:hover {
+        transform: scale(1.15);
+    }
+
+    .btn-like svg {
+        width: 16px;
+        height: 16px;
+        fill: var(--rose);
+        transition: opacity 0.2s;
+    }
+
+    /* ===========================
+       Prev / Next buttons
+    ============================ */
+    .btn-skip {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.15s, opacity 0.15s;
+    }
+
+    .btn-skip:hover {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+
+    .btn-skip svg {
+        width: 28px;
+        height: 28px;
+        fill: var(--rose);
+    }
+
+    /* ===========================
+       Play / Pause button
+    ============================ */
+    .btn-play {
+        background: var(--rose);
+        border: none;
+        border-radius: 50%;
+        width: 38px;
+        height: 38px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+        box-shadow: 0 6px 24px rgba(184, 112, 112, 0.45);
+    }
+
+    .btn-play:hover {
+        background: var(--rose-light);
+        transform: scale(1.05);
+        box-shadow: 0 8px 30px rgba(184, 112, 112, 0.6);
+    }
+
+    .btn-play:active {
+        transform: scale(0.97);
+    }
+
+    .btn-play svg {
+        width: 28px;
+        height: 28px;
+        fill: #fff;
+    }
+
+    /* ===========================
+       Volume
+    ============================ */
+    .volume-wrap {
+        display: flex;
+        align-items: center;
+    }
+
+    .btn-volume {
+        background: var(--rose-dark);
+        border: none;
+        border-radius: 50%;
+        width: 26px;
+        height: 26px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s, transform 0.15s;
+    }
+
+    /* ==========fin reproductor========== */
+
+    main {
+        width: 50dvw;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        top: -155dvh;
+        align-items: center;
+    }
+
+    .imagen-2 {
+        width: 50dvw;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .flor-3 {
+        width: 27dvw;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .segundo-texto {
+        width: 40dvw;
+        margin-top: -55px;
+        margin-bottom: 20px;
+        position: relative;
+        z-index: -1;
+    }
+
+    .fecha {
+        width: 40dvw;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    .imagen-contador {
+        width: 40dvw;
+        margin-top: 60px;
+        margin-bottom: 20px;
+    }
+
+    /*=======Contador=======*/
+    /* ── Contenedor relativo que envuelve imagen + números ─────────── */
+    .contador-wrap {
         position: relative;   /* ancla los hijos absolute a este bloque */
         display: block;
         width: 100%;          /* hereda el ancho de .imagen-contador si ya lo tienes en tu CSS */
-      }
+    }
 
-      /* ── La imagen ocupa todo el contenedor ────────────────────────── */
-      .contador-wrap .imagen-contador {
+    /* ── La imagen ocupa todo el contenedor ────────────────────────── */
+    .contador-wrap .imagen-contador {
         display: block;
         width: 100%;
-      }
+    }
 
-      /* ── Fila de números flotando sobre la imagen ──────────────────────
-         ↕ POSICIÓN VERTICAL  → ajusta `top`   (% del alto del .contador-wrap)
-         ↔ POSICIÓN HORIZONTAL→ ajusta `left` y `width`
-         ─────────────────────────────────────────────────────────────── */
-      .contador-numeros {
+    /* ── Fila de números flotando sobre la imagen ──────────────────────
+       ↕ POSICIÓN VERTICAL  → ajusta `top`   (% del alto del .contador-wrap)
+       ↔ POSICIÓN HORIZONTAL→ ajusta `left` y `width`
+       ─────────────────────────────────────────────────────────────── */
+    .contador-numeros {
         position: absolute;
 
-        top: 57%;             /* ← SUBE / BAJA los números (prueba 20%–50%) */
+        top: 42%;             /* ← SUBE / BAJA los números (prueba 20%–50%) */
 
         left: 45.8%;            /* ← centro horizontal base */
         transform: translateX(-50%);  /* centra exacto respecto al eje */
@@ -331,13 +337,13 @@ main {
         display: flex;
         justify-content: space-around;  /* distribuye los 4 números uniformemente */
         align-items: center;
-      }
+    }
 
-      /* ── Cada dígito ────────────────────────────────────────────────
-         font-size en vw escala automáticamente con el ancho de pantalla.
-         ↔ TAMAÑO → ajusta el número en font-size (prueba 5vw–10vw)
-         ─────────────────────────────────────────────────────────────── */
-      .contador-num {
+    /* ── Cada dígito ────────────────────────────────────────────────
+       font-size en vw escala automáticamente con el ancho de pantalla.
+       ↔ TAMAÑO → ajusta el número en font-size (prueba 5vw–10vw)
+       ─────────────────────────────────────────────────────────────── */
+    .contador-num {
         font-family: 'Playfair Display', Georgia, serif;  /* misma fuente que el sitio */
         font-size: 6vw;       /* ← TAMAÑO de los dígitos */
         color: #E8A898;       /* ← COLOR rosa que coincide con el texto de la imagen */
@@ -345,35 +351,79 @@ main {
         letter-spacing: 0.02em;
         text-align: center;
         min-width: 2ch;       /* evita saltos al cambiar de 1 a 2 dígitos */
-      }
-/*=========fin contador=======*/
+    }
 
-.calendario {
-    width: 40dvw;
-    margin-top: 20px;
-}
+    /*=========fin contador=======*/
 
-.imagen-3 {
-    width: 40dvw;
-    margin-bottom: 20px;
-    border-top: 5px solid gray;
-}
+    .calendario {
+        width: 40dvw;
+        margin-top: 20px;
+    }
 
-.ubicacion {
-    width: 40dvw;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
+    .imagen-3 {
+        width: 40dvw;
+        margin-bottom: 20px;
+        border-top: 5px solid gray;
+    }
 
-.como-llegar {
-    width: 20dvw;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
+    .ubicacion {
+        width: 40dvw;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
 
-.ultima-foto {
-    width: 40dvw;
-    margin-top: 40px;
-    margin-bottom: 20px;
-}
-}
+    a .como-llegar {
+        /* TAMAÑO DEL BOTÓN */
+        width: 23dvw;  /* ← ANCHO: modifica este valor (ej: 15dvw, 25dvw, 200px) */
+
+        /* POSICIÓN Y ESPACIADO */
+        margin-top: 20px;     /* ← ESPACIO SUPERIOR */
+        margin-bottom: 20px;  /* ← ESPACIO INFERIOR */
+        margin-left: auto;    /* ← CENTRA HORIZONTALMENTE */
+        margin-right: auto;   /* ← CENTRA HORIZONTALMENTE */
+    }
+
+    .ultima-foto {
+        width: 40dvw;
+        margin-top: 40px;
+    }
+
+    footer {
+        width: 50dvw;
+        display: flex !important;
+        visibility: visible !important;
+        flex-direction: column;
+        align-items: center;
+        margin-top: -900px;
+        padding: 20px 0;
+        z-index: 1;
+    }
+
+    .codigo-de-vestimenta {
+        width: 50dvw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: -20px;
+    }
+
+    .codigo-vestuario {
+        width: 40dvw;
+        margin-top: -40px;
+        margin-bottom: 20px;
+    }
+
+    .texto-vestuario {
+        width: 40dvw;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    .flor-final {
+        width: 27dvw;
+        margin-top: -110px;
+        margin-bottom: 20px;
+        position: relative;
+        z-index: -1;
+    }
+

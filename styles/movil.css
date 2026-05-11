@@ -369,12 +369,44 @@
         
         }
 
-    
-
         footer {
-            display: none;
-            visibility: hidden;
-    }
+            width: 100dvw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .codigo-de-vestimenta {
+            width: 100dvw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo-vestuario {
+            width: 50dvw;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .codigo-vestuario {
+            width: 80dvw;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .texto-vestuario {
+            width: 80dvw;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .flor-final {
+            width: 60dvw;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
 }
 
     @media (max-width: 375px) {
