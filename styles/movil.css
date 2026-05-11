@@ -332,13 +332,51 @@
     color: #E8A898;
     line-height: 1;
     text-align: center;
-}
+  }
 
-  .calendario {
+.contenedor-calendario{
+    position: relative;
     width: 100dvw;
+  }
+
+.calendario{
+    width: 100%;
+    display: block;
+
     margin-top: 50px;
     border-bottom: gray solid 5px;
-  }
+}
+
+.corazon{
+    position: absolute;
+    display: block;
+    width: clamp(35px, 7vw, 70px);
+
+    top: 50%;
+    right: 19%;
+
+    z-index: 10;
+
+    transform-origin: center center;
+    transform-box: fill-box;
+
+    animation: girarCorazon 2s ease-in-out infinite;
+}
+
+@keyframes girarCorazon {
+
+    0%{
+        transform: rotate(0deg);
+    }
+
+    50%{
+        transform: rotate(12deg);
+    }
+
+    100%{
+        transform: rotate(0deg);
+    }
+}
 
   .imagen-3 {
     width: 100dvw;
