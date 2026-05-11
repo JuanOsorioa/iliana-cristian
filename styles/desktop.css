@@ -373,13 +373,77 @@
         width: 40dvw;
         margin-bottom: 20px;
         border-top: 5px solid gray;
+        margin-top: -7px;
     }
 
-    .ubicacion {
-        width: 40dvw;
-        margin-top: 20px;
-        margin-bottom: 20px;
+    /* =========================
+   CONTENEDOR
+========================= */
+
+.imagen-flor{
+    position: relative;
+
+    width: fit-content;
+
+    margin: 0 auto;
+}
+
+/* =========================
+   IMAGEN CENTRAL
+========================= */
+
+.ubicacion{
+    width: 40dvw;
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    display: block;
+}
+
+/* =========================
+   FLOR DERECHA
+========================= */
+
+.flor-derecha{
+    position: absolute;
+
+    width: clamp(90px, 30vw, 240px);
+
+    top: 50%;
+    right: -88%;
+
+    transform: translateY(-50%);
+
+    z-index: 10;
+
+    pointer-events: none;
+
+    animation: fadeFlor 4s ease-in-out infinite;
+}
+
+/* =========================
+   ANIMACIÓN
+========================= */
+
+@keyframes fadeFlor{
+
+    0%{
+        opacity: 0;
+        transform: translateY(-50%) scale(0.95);
     }
+
+    50%{
+        opacity: 1;
+        transform: translateY(-50%) scale(1);
+    }
+
+    100%{
+        opacity: 0;
+        transform: translateY(-50%) scale(0.95);
+    }
+
+}
 
     a .como-llegar {
         /* TAMAÑO DEL BOTÓN */
